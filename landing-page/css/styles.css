@@ -24,6 +24,7 @@ h1 {
     font-family: 'Fira Sans', sans-serif;
     font-size: 3em;
     margin: 2em 1rem;
+    padding-top: 1em;
 }
 
 @media only screen and (min-width: 35em) {

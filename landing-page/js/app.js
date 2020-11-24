@@ -11,19 +11,18 @@
  * 
  * JS Standard: ESlint
  * 
-*/
-
+ */
 /**
  * Define Global Variables
  * 
-*/
-
-
+ */
+const navList = document.getElementById('navbar__list');
+const sections = document.querySelectorAll('section');
 /**
  * End Global Variables
  * Start Helper Functions
  * 
-*/
+ */
 
 
 
@@ -31,10 +30,18 @@
  * End Helper Functions
  * Begin Main Functions
  * 
-*/
+ */
 
 // build the nav
-
+function buildNav() {
+    let innerHtmlCode = '';
+    let sectionId;
+    for (let section of sections) {
+        innerHtmlCode += `<a href=#${section.id}><li class='menu__link'>${section.dataset.nav}</li></a>`;
+    }
+    navList.innerHTML = innerHtmlCode;
+}
+buildNav();
 
 // Add class 'active' to section when near top of viewport
 
@@ -46,12 +53,10 @@
  * End Main Functions
  * Begin Events
  * 
-*/
+ */
 
 // Build menu 
 
 // Scroll to section on link click
 
 // Set sections as active
-
-

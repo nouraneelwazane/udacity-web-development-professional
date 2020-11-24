@@ -39,6 +39,7 @@ function buildNav() {
     for (let section of sections) {
         innerHtmlCode += `<li class='menu__link' id='nav_${section.id}'>${section.dataset.nav}</li>`;
     }
+    //populate navbar__list with its list elements
     navList.innerHTML = innerHtmlCode;
 }
 buildNav();
@@ -59,12 +60,15 @@ buildNav();
 
 // Scroll to section on link click
 navList.addEventListener('click', function (evt) {
-    //get section# (the required section id) from nav_section# (clicked nav list id)
-    const requestedSectionName = evt.target.id.split('_')[1];
+    //get clicked Menu Link Item in Navbar and set it is class to viewed (change in CSS)
+    const requestedMenuLinkItem = document.getElementById(evt.target.id);
+    setActiveMenuLink(requestedMenuLinkItem);
 
+    //get section# (the required section id) from nav_section# (clicked nav list id) and set it as active
+    const requestedSectionName = evt.target.id.split('_')[1];
     const requestedSection = document.getElementById(requestedSectionName);
     setActiveSection(requestedSection);
-    requestedSection.scrollIntoView();
+    requestedSection.scrollIntoView(); //go to index.html/#section
 });
 
 // Set sections as active
@@ -74,4 +78,14 @@ function setActiveSection(section) {
 
     //set section corresponding to clicked navbar as part of your-active-class class
     section.classList.add('your-active-class');
+}
+
+
+//Set menu link in navbar as active
+function setActiveMenuLink(menuLinkItem) {
+    //remove viewing class from old active menu link if exist
+    document.querySelector('.viewing')?.classList.remove('viewing');
+
+    //set clicked navbar as part of viewing class
+    menuLinkItem.classList.add('viewing');
 }

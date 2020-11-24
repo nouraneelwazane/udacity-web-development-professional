@@ -1,13 +1,15 @@
 # Landing Page Project
 
-## Table of Contents
+This is my solution to the first assignment in the Web Development Professional course offered by Udacity and FWD.
 
-* [Instructions](#instructions)
+The starter code has been offered by [Udacity](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page).
 
-## Instructions
+This repository is hosted on github pages at https://nouraneelwazane.github.io/udacity-web-development-professional/landing-page/index.html
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Code Description
 
-To get started, open `js/app.js` and start building out the app's functionality
+This code builds a sections' navbar dynamically.
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+The navbar items share an on-click event that scrolls the user to the section corresponding to the clicked navbar menu item. The section is given a darker background (.your-active-class css) and the navbar menu item changes its background from white to black (.viewing css).
+
+While scrolling through the page, the section appearing on the window is set as active (gets a darker background) and the corresponding navbar menu item changes its background from white to black.

@@ -45,7 +45,18 @@ function buildNav() {
 buildNav();
 
 // Add class 'active' to section when near top of viewport
-
+window.addEventListener('scroll', function () {
+    let sectionDistanceFromCurrentWindow = 0;
+    let sectionNavMenuLink = '';
+    for (let section of sections) {
+        sectionDistanceFromCurrentWindow = Math.floor(section.getBoundingClientRect().top);
+        if (Math.abs(sectionDistanceFromCurrentWindow) < 150) {
+            setActiveSection(section);
+            sectionNavMenuLink = document.getElementById(`nav_${section.id}`);
+            setActiveMenuLink(sectionNavMenuLink);
+        }
+    }
+});
 
 // Scroll to anchor ID using scrollTO event
 
@@ -60,11 +71,11 @@ buildNav();
 
 // Scroll to section on link click
 navList.addEventListener('click', function (evt) {
-    //get clicked Menu Link Item in Navbar and set it is class to viewed (change in CSS)
+    //get clicked Menu Link Item in Navbar and set it is class to viewing (change in CSS)
     const requestedMenuLinkItem = document.getElementById(evt.target.id);
     setActiveMenuLink(requestedMenuLinkItem);
 
-    //get section# (the required section id) from nav_section# (clicked nav list id) and set it as active
+    //get section# (the required section id) from nav_section# (clicked nav list id) and set it as your-active-class
     const requestedSectionName = evt.target.id.split('_')[1];
     const requestedSection = document.getElementById(requestedSectionName);
     setActiveSection(requestedSection);
